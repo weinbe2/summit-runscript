@@ -5,6 +5,14 @@ These scripts aren't specifically set up to be run in any organized directory st
 
 These scripts have only been tested with the `feature/p2p-zero-copy` branch of QUDA (though I don't see any reason why it wouldn't work with any modern branch) with the QMP interface. These scripts assume `t` is the fast direction, i.e., it's preferentially split within a node, which can be verified with the output from the `feature/p2p-zero-copy` branch. I don't see why using a different (modern) repository, or using MPI instead of QMP when building QUDA, should make a difference. _Please tell me if you find any issues._
 
+I'm not sure if it makes a difference, but to be complete, my `~/.profile` file contains (and contained when I built QMP, QIO, and QUDA):
+
+`module load cmake/3.9.2`
+`module load git/2.13.0`
+`module load makedepend/1.0.5`
+`module load screen/4.3.1`
+`module load cuda/9.2.64`
+
 The description of the files is as follows:
 * `bind-4gpu.sh`: The `numactl` script when you only use 4 GPUs per node. This only gets used if there isn't a factor of 3 in the `T` or `Z` direction. (This choice is based on the assumption that the _global_ dimension in the `X`, `Y`, and `Z` directions are all equal. I'm sure with some topologies this will break. _This may not be ideal: I'm looking for feedback on this._
 * `bind-6gpu.sh`: The `numactl` script when you use the full 6 GPUs per node. This gets used if my scripts can detect a factor of 3 in the `T` or `Z` direction. _This may not be ideal: I'm looking for feedback on this._
