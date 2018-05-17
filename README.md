@@ -12,11 +12,13 @@ These scripts have only been tested with the `feature/p2p-zero-copy` branch of Q
 
 I'm not sure if it makes a difference, but to be complete, my `~/.profile` file contains (and contained when I built QMP, QIO, and QUDA):
 
-`module load cmake/3.9.2`
-`module load git/2.13.0`
-`module load makedepend/1.0.5`
-`module load screen/4.3.1`
-`module load cuda/9.2.64`
+```
+module load cmake/3.9.2
+module load git/2.13.0
+module load makedepend/1.0.5
+module load screen/4.3.1
+module load cuda/9.2.64
+```
 
 The description of the files is as follows:
 * `bind-4gpu.sh`: The `numactl` script when you only use 4 GPUs per node. This only gets used if there isn't a factor of 3 in the `T` or `Z` direction. (This choice is based on the assumption that the _global_ dimension in the `X`, `Y`, and `Z` directions are all equal. I'm sure with some topologies this will break. _This may not be ideal: I'm looking for feedback on this._
