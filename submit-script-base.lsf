@@ -23,6 +23,8 @@
 ## Output file, %J refers to the job id
 #BSUB -o stag_profile.:DIMX:x:DIMY:x:DIMZ:x:DIMT:.n:NNODES:.:GRIDX:x:GRIDY:x:GRIDZ:x:GRIDT:.%J
 
+# Evan Weinberg, evansweinberg@gmail.com
+# `jsrun` command loosely based on a command given to me by Kate, which I believe came from Chulwoo. 
 
 # By default, environment variables get passed through.
 # Exclude them with:

@@ -64,3 +64,4 @@ I hope this is a sufficient description of the scripts and how to use them. If t
 _Most importantly:_ If there's anything that's sub-optimal, misguided, or wrong, PLEASE let me know!
 
 Cheers!
+ - Evan Weinberg, evansweinberg \[at\] gmail.com

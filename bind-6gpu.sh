@@ -1,4 +1,6 @@
 #!/bin/bash
+# Evan Weinberg, evansweinberg@gmail.com
+# Binding script for 6 GPUs per node. Based on a script given to me by Kate, which I believe was based on something from Steve, which may have been based on something originally by Kate...
 
 lrank=$(($PMIX_RANK % 6))
 

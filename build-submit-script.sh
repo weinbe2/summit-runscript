@@ -1,4 +1,6 @@
 #!/bin/bash
+# Evan Weinberg, evansweinberg@gmail.com
+
 # Script which builds a Summit submit script.
 # Expects nine arguments:
 # 1. Number of nodes
