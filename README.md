@@ -1,6 +1,11 @@
 # summit-runscript
 Reference scripts to run QUDA test utilities on Summit. Not guaranteed to be optimal.
 
+## Top level summary
+To run these scripts as-is, clone this repository, make a static link (`ln -s`) to `./staggered_invert_test` in this directory, build a submit script using `./build-submit-script.sh` (run it without any arguments to get an error message telling you what to do), and submit the built script using `bsub`. 
+
+## All the details
+
 These scripts aren't specifically set up to be run in any organized directory structure; they are a base that should be customized for any user's specific needs. Currently, the scripts assume that a job will be submitted from the same directory that these scripts run it (but again, it should be clear and easy to see how to change that). The scripts are currently hard-coded to assume the QUDA test executable "staggered\_invert\_test" also lives in the same directory, either copied there or statically linked (i.e., you called `ln -s [QUDA test directory]/staggered_invert_test` in this directory. I'll document how to modify this below.
 
 These scripts have only been tested with the `feature/p2p-zero-copy` branch of QUDA (though I don't see any reason why it wouldn't work with any modern branch) with the QMP interface. These scripts assume `t` is the fast direction, i.e., it's preferentially split within a node, which can be verified with the output from the `feature/p2p-zero-copy` branch. I don't see why using a different (modern) repository, or using MPI instead of QMP when building QUDA, should make a difference. _Please tell me if you find any issues._
