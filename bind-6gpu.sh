@@ -6,7 +6,6 @@ lrank=$(($PMIX_RANK % 6))
 
 echo $APP
 
-export OMP_NUM_THREADS=7
 case ${lrank} in
  [0])
  export PAMI_IBV_DEVICE_NAME=mlx5_0:1

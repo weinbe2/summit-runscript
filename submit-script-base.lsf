@@ -66,8 +66,10 @@ COMMAND="jsrun"
 if [ "$NGPUS" -eq 4 ];
 then
   export CUDA_VISIBLE_DEVICES=0,1,3,4
+  export OMP_NUM_THREADS=10
   COMMAND="${COMMAND} --nrs ${NNODES} -a4 -g6 -c40 -dpacked -b packed:10 --latency_priority gpu-cpu ./bind-4gpu.sh";
 else # NGPUS -eq 6, guaranteed by script that builds this.
+  export OMP_NUM_THREADS=7
   COMMAND="${COMMAND} --nrs ${NNODES} -a6 -g6 -c42 -dpacked -b packed:7 --latency_priority gpu-cpu ./bind-6gpu.sh";
 fi
 
