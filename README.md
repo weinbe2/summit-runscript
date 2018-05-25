@@ -50,7 +50,7 @@ The description of the files is as follows:
     * These lines should be modified if you want to pass in, for ex, the global and local volumes instead.
   * Line 53: Defines the QUDA test executable to call. Currently hard coded to `staggered_invert_test`. This assumes the executable, or a static link to it, lives in the same directory.
   * Line 54: Defines the topology and local volume (per the convention of the `--gridsize` and `--dim` flags passed to QUDA test executable), as well as any additional flags. 
-    * The existing flags assume reconstruct-12 is used (`--recon 12 --recon-sloppy 12`), and the inversion is run to a maximum iterations of 10000 or a tolerance of 1e-5 (`--niter 10000 --tol 1e-5`).
+    * The existing flags assume reconstruct-12 is used (`--recon 12 --recon-sloppy 12`), and the inversion is run to a maximum iterations of 10000 or a tolerance of 1e-5 (`--niter 10000 --tol 1e-5`). The last flag (`--pipeline 1`) enables a version of the CG algorithm which fuses the two reductions into one, improving strong scaling.
   * Line 55: Builds the total execution string and stores it into the variable `$APP`. The `numactl` scripts `bind-4gpu.sh` and `bind-6gpu.sh` _assume_ this variable is set.
     * You can replace this with `export APP=./jsrun_layout`, the utility given [here](https://code.ornl.gov/t4p/Hello_jsrun), to understand how the `jsrun` command described below works.
   * Line 57: Sets the QUDA tunecache directory `QUDA_RESOURCE_PATH`, consistent with the directory created in `build-submit-script.sh`.
