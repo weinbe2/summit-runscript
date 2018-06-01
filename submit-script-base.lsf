@@ -53,7 +53,7 @@ GRIDSIZE="$GRIDX $GRIDY $GRIDZ $GRIDT"
 LOCALSIZE="$LOCALDIMX $LOCALDIMY $LOCALDIMZ $LOCALDIMT"
 
 export EXE="./staggered_invert_test"
-export ARGS="--gridsize ${GRIDSIZE} --dim ${LOCALSIZE} --recon 12 --recon-sloppy 12 --niter 10000 --tol 1e-5  --pipeline 1 "
+export ARGS="--gridsize ${GRIDSIZE} --dim ${LOCALSIZE} --dslash-type staggered --recon 12 --recon-sloppy 12 --niter 10000 --tol 1e-5  --pipeline 1 "
 export APP="$EXE $ARGS"
 
 export QUDA_RESOURCE_PATH="${LS_SUBCWD}/tunecache-${DIMX}x${DIMY}x${DIMZ}x${DIMT}-n${NNODES}-${GRIDX}x${GRIDY}x${GRIDZ}x${GRIDT}/"
